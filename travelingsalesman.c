@@ -1,5 +1,6 @@
 #include<stdio.h>
  
+ 
 int ary[10][10],completed[10],n,cost=0;
  
 void takeInput()
