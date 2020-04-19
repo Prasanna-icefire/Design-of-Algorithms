@@ -7,7 +7,7 @@ Repeat the experiment for different values of n and plot a graph of the time tak
 void knapsack(int n,int v[],int w[],int c)
 {   int i=0,a[n],it[n],j;//a carries the ascending ordered value
     //Get the value/weight ratio
-    printf("Value of n %d\n",n);
+    
     float r[n];
     for(i=0;i<n;i++)
     {   
@@ -22,7 +22,7 @@ void knapsack(int n,int v[],int w[],int c)
         for(j=0;j<n-i-1;j++)
         {   
             if(r[j]>r[j+1])//Arrenged all the items in ascending order of the rate and in the it obtained the values of items + corresponding weights taken down
-            {   printf("Executing Swapp");
+            {   
                 int temp=it[j];
                 it[j]=it[j+1];
                 it[j+1]=temp;
@@ -35,25 +35,51 @@ void knapsack(int n,int v[],int w[],int c)
             }
         }
     }
-    printf("Following is the data after arrenging in ascending order:\n");
+    printf("Following is the data after arrenging in ascending order based on value per weight:\n");
     printf("ITEM_NO         RATE     WEIGHT\n");
     for(i=0;i<n;i++)
     {
         printf("     %d       %f       %d\n",it[i],r[i],w[i]);
     }
-    int item[n],correswt[n],pft[n],k=0;
+    int item[n],correswt[n],k=0;
+    float pft[n];
+
     for(i=n-1;i>=0;i--)
     {
-        while(c>=w[i])
+        if(c-w[i]>0)
         {
             item[k]=it[i];
             correswt[k]=w[i];
-            c-=correswt[k];
-            pft[k]=r[k]*correswt[k];
-            k++;
-        } 
+            pft[k]=v[i];
+            c=c-w[i];
+            k=k+1;
+        }
+        else
+        {
+            
+             if(c>0)
+            {
+                item[k]=it[i];
+                correswt[k]=c;
+                pft[k]=r[i]*c;
+                k=k+1;
+                break;
+            }
+        }
         
-    }   
+
+    }
+
+
+    printf("Folllowing table represents what needs to be taken\n");
+    float profit=0.0;
+    printf("ITEM_NO       WEIGHT     PROFIT\n");
+    for(i=0;i<k;i++)
+    {
+        printf("     %d          %d       %f\n",item[i],correswt[i],pft[i]);
+        profit+=pft[i];
+    }  
+    printf("Net Proft %f \n",profit);
 
 }
 
@@ -78,3 +104,170 @@ void main()
     printf("Calculating best knapsack items with their respective weights to be carried..\n");
     knapsack(n,v,w,c);
 }
+/*
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 5
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 1
+5 1
+4 2
+4 1
+6 7
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   1
+   2        5     |   1
+   3        4     |   2
+   4        4     |   1
+   5        6     |   7
+Enter the knapsack bag capacity 10
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     5       0.857143       7
+     1       1.000000       1
+     3       2.000000       2
+     4       4.000000       1
+     2       5.000000       1
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     2          1       6.000000
+     4          1       4.000000
+     3          2       4.000000
+     1          1       5.000000
+     5          5       4.285714
+Net Proft 23.285713 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 3
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 2 1 3 1 5
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   2
+   2        1     |   3
+   3        1     |   5
+Enter the knapsack bag capacity 1
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     3       0.200000       5
+     2       0.333333       3
+     1       0.500000       2
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     1          1       0.500000
+     2          1       0.333333
+     3          1       0.200000
+Net Proft 1.033333 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ gcc knapsack.c 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 3
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 2 1 3 1 5
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   2
+   2        1     |   3
+   3        1     |   5
+Enter the knapsack bag capacity 1
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     3       0.200000       5
+     2       0.333333       3
+     1       0.500000       2
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     1          1       0.500000
+Net Proft 0.500000 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 3
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 2 1 3 1 5 
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   2
+   2        1     |   3
+   3        1     |   5
+Enter the knapsack bag capacity 2
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     3       0.200000       5
+     2       0.333333       3
+     1       0.500000       2
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     1          2       1.000000
+Net Proft 1.000000 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 3
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 2 1 3 1 5
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   2
+   2        1     |   3
+   3        1     |   5
+Enter the knapsack bag capacity 3
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     3       0.200000       5
+     2       0.333333       3
+     1       0.500000       2
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     1          2       1.000000
+     2          1       0.333333
+Net Proft 1.333333 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 3 
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 2 1 3 1 5
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   2
+   2        1     |   3
+   3        1     |   5
+Enter the knapsack bag capacity 5
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     3       0.200000       5
+     2       0.333333       3
+     1       0.500000       2
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     1          2       1.000000
+     2          3       1.000000
+Net Proft 2.000000 
+(base) icefire@icefire-TUF-GAMING-FX504GM-FX80GM:~/Academics/Sem-4/DAA$ ./a.out
+Enter the number of items 3
+Enter the correspoding values and weights respectively
+ VALUES WEIGHTS
+1 2 1 3 1 5
+You have entered:
+ITEM_NO.  VALUES | | WEIGHTS
+   1        1     |   2
+   2        1     |   3
+   3        1     |   5
+Enter the knapsack bag capacity 6
+Calculating best knapsack items with their respective weights to be carried..
+Following is the data after arrenging in ascending order based on value per weight:
+ITEM_NO         RATE     WEIGHT
+     3       0.200000       5
+     2       0.333333       3
+     1       0.500000       2
+Folllowing table represents what needs to be taken
+ITEM_NO       WEIGHT     PROFIT
+     1          2       1.000000
+     2          3       1.000000
+     3          1       0.200000
+Net Proft 2.200000 */
