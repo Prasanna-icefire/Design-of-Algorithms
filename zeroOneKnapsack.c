@@ -1,1 +1,7 @@
-//initial Commit
+#include<stdio.h>
+
+
+void main()
+{
+
+}
