@@ -80,3 +80,55 @@ void main()
   generateSol(n,nw,p);
   
 }
+/*
+Explanation of KnapSack:
+
+Sample Input :
+_______________________________________________
+|Object Number :              | 1   2   3   4 |
+-----------------------------------------------
+|Profit of respective OBJECT :| 1   2   5   6 |
+-----------------------------------------------
+|Weight of respective OBJECT :| 2   3   4   5 |
+_______________________________________________
+
+
+TABLE:
+                BAG WEIGHT CAPACITY
+        OB  0   1   2   3   4   5   6   7   8
+Pi  Wi  0   
+1   2   1      
+2   3   2   
+5   4   3   
+6   5   4     
+
+
+
+
+
+
+
+TABLE[i][j]: 
+            = 0 when either of i or j = 0
+
+            = max(TABLE[i-1][j]  OR  Profit_of_same_object + The Previous rows profit, Column obtained by j - weight_of_object) 
+                    if Wi is less than or equal to Bag Weight Capacity
+
+            = TABLE[i-1][j]
+
+
+OBTAIN the 0-1 Array: Demonstrate in the code itself...
+
+
+
+Complexity Analysis:
+    Each entry of the table requires constant time θ(1) for its computation.
+    It takes θ(nw) time to fill (n+1)(w+1) table entries.
+    It takes θ(n) time for tracing the solution since tracing process traces the n rows.
+    Thus, overall θ(nw) time is taken to solve 0/1 knapsack problem using dynamic programming.
+
+
+
+
+
+*/
