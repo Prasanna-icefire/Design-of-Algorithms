@@ -83,6 +83,28 @@ void main()
 /*
 Explanation of KnapSack:
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Sample Input :
 _______________________________________________
 |Object Number :              | 1   2   3   4 |
@@ -91,6 +113,32 @@ _______________________________________________
 -----------------------------------------------
 |Weight of respective OBJECT :| 2   3   4   5 |
 _______________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 TABLE:
@@ -108,13 +156,27 @@ Pi  Wi  0
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 TABLE[i][j]: 
             = 0 when either of i or j = 0
 
             = max(TABLE[i-1][j]  OR  Profit_of_same_object + The Previous rows profit, Column obtained by j - weight_of_object) 
                     if Wi is less than or equal to Bag Weight Capacity
 
-            = TABLE[i-1][j]
+
 
 
 OBTAIN the 0-1 Array: Demonstrate in the code itself...
