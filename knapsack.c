@@ -128,7 +128,9 @@ Following is the data after arrenging in ascending order based on value per weig
 ITEM_NO         RATE     WEIGHT
      5       0.857143       7
      1       1.000000       1
-     3       2.000000       2
+     3       2.000000       2           5 kilos potatoes   =   60
+                                        4 kilos of tomatoes   50     50kilos
+                                        1 kilo brinjal      40
      4       4.000000       1
      2       5.000000       1
 Folllowing table represents what needs to be taken
