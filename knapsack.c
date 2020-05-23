@@ -273,4 +273,33 @@ ITEM_NO       WEIGHT     PROFIT
      1          2       1.000000
      2          3       1.000000
      3          1       0.200000
-Net Proft 2.200000 */
+Net Proft 2.200000 
+
+
+
+
+            wt      Profit
+Potatoes     5       60 12
+Tomatoes     4       50 12.5
+Brinjals     3       90 30  
+Mangoes      4       80 20        8 kilos of knapsack   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
