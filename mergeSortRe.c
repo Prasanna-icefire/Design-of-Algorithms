@@ -5,7 +5,8 @@ void Merge(int b[],int c[],int a[],int n)
     while(i<p && j<q)
     {
         if(b[i]<c[j])
-            a[k++]=b[i++];
+            a[k++]=b[i++];      //Compare the elements of the array which are pointed....Remember comparism happens linearly and Sequentially
+                                //between 2 arrays.....only in forward direction
         else
             a[k++]=c[j++];             
     }
@@ -24,7 +25,7 @@ void Divide(int a[],int n)
 
     if(n>1)
     {
-        for(i=0;i<p;i++)
+        for(i=0;i<p;i++)    //Recursively divide the array until there is only one element in each array
             b[i]=a[i];
         
         for(j=0;j<q;j++)
@@ -33,7 +34,6 @@ void Divide(int a[],int n)
         Divide(c,q);
         Merge(b,c,a,n);
     }
-
 
 }
 void main()
