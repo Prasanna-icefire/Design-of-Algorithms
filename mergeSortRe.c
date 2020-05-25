@@ -26,12 +26,19 @@ void Divide(int a[],int n)
     if(n>1)
     {
         for(i=0;i<p;i++)    //Recursively divide the array until there is only one element in each array
-            b[i]=a[i];
-        
+           {
+                b[i]=a[i];
+                printf("%d ",b[i]);
+           }    
+        printf("        ");
         for(j=0;j<q;j++)
-            c[j]=a[j+i]; 
+           {
+                c[j]=a[j+i]; 
+                printf("%d ",c[i]);
+           }    
         Divide(b,p);
         Divide(c,q);
+        printf("\n");
         Merge(b,c,a,n);
     }
 
