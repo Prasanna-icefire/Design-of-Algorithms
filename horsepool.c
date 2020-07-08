@@ -51,3 +51,12 @@ int horsepool(char src[],char p[])
     }
 
 }
+
+
+/*
+Enter the text in which pattern is to be searched:
+12345678
+Enter the pattern to be searched:
+67
+The desired pattern was found starting from position 6
+*/
