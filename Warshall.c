@@ -47,8 +47,7 @@ void main()
         printf("\n"); 
     }
 }
-
-/* 
+/* COMPLEXITY O(nsquare)
 Enter the order of the directed matrix 4
 Enter the directed matrix
 0 1 0 0

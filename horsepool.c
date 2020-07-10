@@ -28,7 +28,6 @@ void shiftable(char p[])
         t[p[j]]=m-1-j;   
 
 }
-
 int horsepool(char src[],char p[])
 {
     int i,j,k,m,n;
@@ -46,8 +45,6 @@ int horsepool(char src[],char p[])
         {
             i+=t[src[i]];
         }
-                
-        
     }
 
 }

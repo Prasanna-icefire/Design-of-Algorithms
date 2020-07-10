@@ -25,32 +25,6 @@ void knapsack(int p[],int w[],int nw)
         }
     }
 }
-void generateSol(int n,int nw,int p[])
-{
-    int rp = table[n][nw],i,j,flag=1;//Remaining Profit,initial value stored in the last cell
-    for(i=n-1;i>=0;i--)//To check the previous row
-    {
-        for(j=0;j<=nw;j++)//Checked all the elements of the previous row
-        {
-            if(table[i][j] == rp)
-            {
-                flag = 0;
-                break;
-            }
-        }
-        if(flag==0)
-            sol[i]=0;
-        else
-        {
-            sol[i]=1;
-            rp = rp - p[i];
-        } 
-        flag = 1;//Reset flag value       
-    }
-    printf("Generated Solution : ");
-    for(i=0;i<n;i++)
-        printf("%d ",sol[i]);
-}
 void main()
 {
   int i,nw,j;
@@ -80,11 +54,32 @@ void main()
   generateSol(n,nw,p);
   
 }
-
-
-
-
-
+void generateSol(int n,int nw,int p[])
+{
+    int rp = table[n][nw],i,j,flag=1;//Remaining Profit,initial value stored in the last cell
+    for(i=n-1;i>=0;i--)//To check the previous row
+    {
+        for(j=0;j<=nw;j++)//Checked all the elements of the previous row
+        {
+            if(table[i][j] == rp)
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if(flag==0)
+            sol[i]=0;
+        else
+        {
+            sol[i]=1;
+            rp = rp - p[i];
+        } 
+        flag = 1;//Reset flag value       
+    }
+    printf("Generated Solution : ");
+    for(i=0;i<n;i++)
+        printf("%d ",sol[i]);
+}
 
 
 
