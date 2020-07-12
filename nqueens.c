@@ -1,3 +1,5 @@
+
+//https://www.youtube.com/watch?v=xFv_Hl4B83A   For reference
 #include<stdio.h>
 #include<math.h>
 #define n 4
@@ -8,6 +10,8 @@ int place(int k, int i) // kth queen at ith column
 {
     for(int j=0; j<k ; j++)
     {
+        //old queen is placed at jth row of x[j] column
+        //new queen to be placed at kth row of ith column
         if(x[j]==i || (abs(k-j)==abs(i-x[j])))
         return 0;
     }
