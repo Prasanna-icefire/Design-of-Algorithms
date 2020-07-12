@@ -1,3 +1,5 @@
+
+//https://www.youtube.com/watch?v=kyLxTdsT8ws   To learn
 #include<stdio.h>
 # define size 20
 
